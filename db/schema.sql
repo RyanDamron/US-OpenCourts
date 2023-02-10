@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS courts_db;
+CREATE DATABASE courts_db;
