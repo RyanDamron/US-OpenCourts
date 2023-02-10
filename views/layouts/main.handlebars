@@ -5,8 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>US OPEN COURTS</title>
-  <link rel="stylesheet" type="text/css" href="/css/jass.css">
-  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+        <!-- Import Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
 </head>
 
 <body>
@@ -14,18 +29,23 @@
     <h1>Welcome to the US OPEN COURTS</h1>
   </header>
   <nav>
-    <a href="/">Home</a>
-    {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
-    {{else}}
-    <a href="/login">Login</a>
-    {{/if}}
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Logo</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+               <li><a href="/">Home</a></li>
+        {{#if loggedIn}}
+                <li><a href="/search">Search</a></li>
+                <li><a href="/result">Result</a></li>
+                <li><a id="logout" href="/logout">Logout</a></li>
+       {{else}}
+                <li><a id="logout" href="/login">Login</a></li>
+                <li><a id="signup" href="/signup">Signup</a></li>
+        {{/if}}
+      </ul>
+    </div>
   </nav>
   <main>
-    <aside>
-      <h2>Enjoy the match!</h2>
-    </aside>
-    <div class="gallery">
+    <div style="background-color: white">
       {{{body}}}
     </div>
   </main>
