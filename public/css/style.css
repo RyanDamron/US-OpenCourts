@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+  }
+body {
+    background-color: #373d20;
+}
+  header {
+    padding: 33px;
+    text-align: center;
+    background: #f4e3b2;
+    color: #fff;
+  }
+  
+header h1 {
+    color: #f46036
+    
+  }
+
+  header h5 {
+    color: #603140;
+  }
