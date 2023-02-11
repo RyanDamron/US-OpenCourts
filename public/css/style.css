@@ -3,14 +3,25 @@
 * {
   box-sizing: border-box;
 }
+@font-face {
+  font-family: GothamBook;
+  src: url(GothamBook.ttf);
+}
+
+@font-face {
+  font-family: GothamMedium;
+  src: url(GothamMedium.ttf);
+}
+
 body {
   background-color: #373d20;
 }
+
 header {
   padding: 33px;
   text-align: center;
   background: #f4e3b2;
-  /* color: #fff; */
+  font-family: GothamMedium;
 }
 
 header h1 {
@@ -20,16 +31,6 @@ header h1 {
 header h5 {
   color: #603140;
 }
-
-/* .my-div {
-  background-color: red;
-  color: yellow;
-  margin: 0;
-  padding: 0;
-  font-size: 48px;
-  font-family: 'Roboto';
-} */
-
 nav {
   background-color: #766153;
 }
@@ -37,20 +38,44 @@ nav {
 .login {
   display: flex;
   justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  letter-spacing: 0.618px;
+  background-color: #00a67f;
+  font-family: GothamBook;
+  line-height: 1.6em;
 }
+
+.login .container p {
+  font-size: 1.1618em;
+  text-align: center;
+}
+
 .container {
-  background-color: lightblue;
-  height: 400px;
+  background-color: #3a3b6d;
+  height: 550px;
+  justify-content: center;
+  align-items: center;
   width: 45%;
-  padding: 10px;
-  margin: 20px;
-  box-shadow: 0px 0px 10px gray;
+  padding: 61.8px;
+  border-radius: 6.18px;
+  border: 4px solid white;
+  margin: 61.8px;
+  box-shadow: 0px 0px 10px rgb(69, 69, 69);
   display: inline-block;
+  
+}
+
+.center-align {
+  font-family: GothamMedium;
+  color: white;
+  font-size: 2em;
 }
 
 .input-field {
   margin-bottom: 0px;
-  color: #ffffff !important;
+  margin-top: 10px;
+  line-height: 0em;
 }
 
 .text-color {
@@ -66,4 +91,17 @@ nav {
  .input-field input:focus, .materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #ffffff !important;
   box-shadow: 0 1px 0 0 #ffffff !important;
+ }
+ 
+ input {
+  color: white;
+}
+
+input:focus {
+  color: white;
+}
+
+ .row {
+  justify-content: center;
+  margin-top: 16px;
  }
