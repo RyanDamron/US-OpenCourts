@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
 // SIGN UP
 router.get("/signup", async (req, res) => {
   if (req.session.logged_in) {
-    // res.redirect('/homepage')
+    res.redirect('/homepage')
     return;
   }
   // Pass serialized data and session flag into template

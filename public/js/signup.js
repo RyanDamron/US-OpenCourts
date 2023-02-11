@@ -10,12 +10,13 @@ const signupFormHandler = async (event) => {
   if (username && password && email && firstname && lastname) {
     const response = await fetch("/api/user", {
       method: "POST",
-      body: JSON.stringify({ username, password, email }),
+      body: JSON.stringify({ username, password, email, firstname, lastname }),
       headers: { "Content-Type": "application/json" },
     });
 
     if (response.ok) {
-      document.location.reload("");
+      alert("account created!");
+      document.location.replace("/login");
     } else {
       alert("failed to sign up");
     }
