@@ -5,13 +5,17 @@ const { User } = require("../../models/");
 router.post('/', async (req, res) => {
     try {
         const newUserData = await User.create({
+          firstname: req.body.firstname,
+          lastname: req.body.lastname,
           username: req.body.username,
+          email: req.body.email,
           password: req.body.password,
         });
     
         req.session.save(() => {
           req.session.user_id = newUserData.id;
-          req.session.username = newUserData.username;  
+          req.session.username = newUserData.username;
+          req.session.email = newUserData.email;  
           req.session.loggedIn = true;
     
           res.json(newUserData);
@@ -30,7 +34,7 @@ router.post('/', async (req, res) => {
       if (!userData) {
         res
           .status(400)
-          .json({ message: `${req.body.username} is not a valid username` });
+          .json({ message: `${req.body.username} is not a valid username and passwords` });
         return;
       }
   
@@ -39,7 +43,7 @@ router.post('/', async (req, res) => {
       if (!validPassword) {
         res
           .status(400)
-          .json({ message: 'Incorrect username or password, please try again' });
+          .json({ message: 'Incorrect email or password, please try again' });
         return;
       }
   
