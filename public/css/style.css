@@ -63,7 +63,6 @@ nav {
   margin: 61.8px;
   box-shadow: 0px 0px 10px rgb(69, 69, 69);
   display: inline-block;
-  
 }
 
 .center-align {
@@ -83,17 +82,19 @@ nav {
 }
 
 /* label focus color */
-.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+.input-field input[type="text"]:focus + label,
+.materialize-textarea:focus:not([readonly]) + label {
   color: #ffffff !important;
- }
+}
 
 /* label underline focus color */
- .input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+.input-field input:focus,
+.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #ffffff !important;
   box-shadow: 0 1px 0 0 #ffffff !important;
- }
- 
- input {
+}
+
+input {
   color: white;
 }
 
@@ -101,7 +102,7 @@ input:focus {
   color: white;
 }
 
- .row {
+.row {
   justify-content: center;
   margin-top: 16px;
- }
+}
