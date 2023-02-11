@@ -10,7 +10,7 @@ header {
   padding: 33px;
   text-align: center;
   background: #f4e3b2;
-  color: #fff;
+  /* color: #fff; */
 }
 
 header h1 {
@@ -21,13 +21,49 @@ header h5 {
   color: #603140;
 }
 
-
-.my-div {
+/* .my-div {
   background-color: red;
   color: yellow;
   margin: 0;
   padding: 0;
   font-size: 48px;
   font-family: 'Roboto';
+} */
+
+nav {
+  background-color: #766153;
 }
 
+.login {
+  display: flex;
+  justify-content: center;
+}
+.container {
+  background-color: lightblue;
+  height: 400px;
+  width: 45%;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 0px 0px 10px gray;
+  display: inline-block;
+}
+
+.input-field {
+  margin-bottom: 0px;
+  color: #ffffff !important;
+}
+
+.text-color {
+  color: white !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+  color: #ffffff !important;
+ }
+
+/* label underline focus color */
+ .input-field input:focus, .materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ffffff !important;
+  box-shadow: 0 1px 0 0 #ffffff !important;
+ }

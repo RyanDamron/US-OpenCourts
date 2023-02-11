@@ -35,10 +35,10 @@ router.get('/login', async(req,res)=>{
 
   // LOG IN
 router.get('/result', async(req,res)=>{
-  // if (!req.session.logged_in){
-  //     res.redirect('/login')
-  //   return;
-  // }
+  if (!req.session.logged_in){
+      res.redirect('/login')
+    return;
+  }
     // Pass serialized data and session flag into template
     res.render("resultpage")
     return;
