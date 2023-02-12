@@ -1,15 +1,15 @@
 <div class="login">
   <!-- First Container -->
   <div class="container">
-    <h5 class="center-align">Sign In</h5>
+    <h5 class="center-align">Log In</h5>
     <p class="center-align">Log in to view your account & make reservations!</p>
     <!-- Login Form -->
     <div class="row valign-wrapper">
-      <form class="col s12">
+      <form class="col s12 form login-form">
         <div class="row valign-wrapper">
           <div class="input-field col s12">
-            <input id="email" type="email" class="validate" />
-            <label for="email" class="text-color">Email</label>
+            <input id="username" type="text" class="validate" />
+            <label for="username" class="text-color">Username</label>
           </div>
         </div>
         <div class="row valign-wrapper">
@@ -23,12 +23,16 @@
             <i class="material-icons right">loupe</i>
           </button>
         </div>
-         <div>
-      <a href="/signup">Create a account</a>
+        <div>
+          <a href="/signup">Create a account</a>
+        </div>
+      </form>
     </div>
   </div>
+</div>
 
-  <!-- Second Container -->
+<script src="./js/login.js"></script>
+{{! <!-- Second Container -->
   <div class="container">
     <h5 class="center-align">Sign Up</h5>
     <p class="center-align">Don't already have an account? Sign up below!</p>
@@ -67,4 +71,4 @@
 
   </div>
 </div>
-<script src="./js/login.js"></script>
+<script src="./js/login.js"></script> }}
