@@ -34,12 +34,12 @@
       <a href="#" class="brand-logo right">Logo</a>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
                <li><a href="/">Home</a></li>
-        {{#if loggedIn}}
+        {{#if session.logged_in}}
                 <li><a href="/search">Search</a></li>
                 <li><a href="/result">Result</a></li>
-                <li><a id="logout" href="/logout">Logout</a></li>
+                <li><a id="logout">Logout</a></li>
        {{else}}
-                <li><a id="logout" href="/login">Login</a></li>
+                <li><a id="login" href="/login">Login</a></li>
                 <li><a id="signup" href="/signup">Signup</a></li>
         {{/if}}
       </ul>
@@ -50,9 +50,10 @@
       {{{body}}}
     </div>
   </main>
-  {{#if loggedIn}}
+  {{#if session.logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+
 </body>
 
 </html>
