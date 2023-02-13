@@ -1,8 +1,94 @@
 <h1>Result Page</h1>
 
- <ul id="dropdown2" class="dropdown-content">
-    <li><a href="#!">one<span class="badge">1</span></a></li>
-    <li><a href="#!">two<span class="new badge">1</span></a></li>
-    <li><a href="#!">three</a></li>
-  </ul>
-  <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i class="material-icons right">arrow_drop_down</i></a
+<ul id="dropdown2" class="dropdown-content">
+  <li><a href="#!">one<span class="badge">1</span></a></li>
+  <li><a href="#!">two<span class="new badge">1</span></a></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i
+    class="material-icons right">arrow_drop_down</i></a>
+
+
+{{!-- <ul class="collapsible court_list">
+  {{#each courts as |court|}}
+  <li>
+    <div class="collapsible-header">{{court.street}}</div>
+    <div class="collapsible-body">
+      <span style="display: : block; margin-buttom:3px">{{court.city}}</span>
+    </div>
+  </li>
+
+  {{/each}}
+</ul> --}}
+
+
+
+
+<ul class="collapsible popout court_list">
+  {{#each courts as |court|}}
+  <li>
+    <div class="collapsible-header">{{court.street}}</div>
+    <div class="collapsible-body"><span>
+        {{court.city}},
+        {{court.state}} |
+        {{court.zip_code}} |
+        {{court.type}} |
+        {{court.count}} Courts |
+        {{#if court.clay}}
+        Court Type: Clay |
+        {{/if}}
+        {{#if court.grass}}
+        Court Type: Grass |
+        {{/if}}
+        {{#if court.wall}}
+        Court Has a Wall |
+        {{/if}}
+        {{#if court.indoor}}
+        Indoor Court |
+        {{/if}}
+        {{#if court.lights}}
+        Court Has Lights |
+        {{/if}}
+        {{#if court.proshop}}
+        Court Has a Proshop
+        {{/if}}</span></div>
+  </li>
+  {{/each}}
+</ul>
+
+
+
+{{!-- <ul class="court_list">
+  {{#each courts as |court|}}
+  <li>{{court.city}}</li>
+  <li>{{court.state}}</li>
+  <li>{{court.zip_code}}</li>
+  <li>{{court.type}}</li>
+  <li>{{court.count}} Courts</li>
+  {{#if court.clay}}
+  <li>Court Type: Clay</li>
+  {{/if}}
+  {{#if court.grass}}
+  <li>Court Type: Grass</li>
+  {{/if}}
+  {{#if court.wall}}
+  <li>Court Has a Wall</li>
+  {{/if}}
+  {{#if court.indoor}}
+  <li>Indoor Court</li>
+  {{/if}}
+  {{#if court.lights}}
+  <li>Court Has Lights</li>
+  {{/if}}
+  {{#if court.proshop}}
+  <li>Court Has a Proshop</li>
+  {{/if}}
+  {{/each}}
+</ul> --}}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var elems = document.querySelectorAll('.collapsible');
+    var instances = M.Collapsible.init(elems);
+  });
+  </script>
