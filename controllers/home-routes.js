@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Courts, Favorites } = require("../models");
 const withAuth = require("../utils/auth");
-const Sequelize = require ("sequelize");
+const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 
 router.get("/", async (req, res) => {
@@ -23,16 +23,16 @@ router.get("/signup", async (req, res) => {
 
 // LOG IN
 
-router.get('/login', async(req,res) => {
-    if (req.session.logged_in){
-        res.redirect('/')
-      return;
-    }
-      // Pass serialized data and session flag into template
-      res.render("loginpage")
-      return;
-      } 
-  );
+router.get('/login', async (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/')
+    return;
+  }
+  // Pass serialized data and session flag into template
+  res.render("loginpage")
+  return;
+}
+);
 
 /* redundant code with below*/
 //   // LOG IN
@@ -80,15 +80,17 @@ router.get("/search", withAuth, async (req, res) => {
 router.get("/result", withAuth, async (req, res) => {
   try {
     const searchCourtsData = await Courts.findAll({
-      where: { city: {[Op.like]:`%${req.query.city}%`} ,},
-      
+      where: { city: { [Op.like]: `%${req.query.city}%` }, },
+
 
       include: [{ model: User, through: Favorites, as: "users_favorited" }],
     });
     // serialize the data
-    const courts = searchCourtsData.map((courts) => courts.get({ plain: true }));
+    const raw = searchCourtsData.map((courts) => courts.get({ plain: true }));
     // Pass serialized data and session flag into template
-    console.log(courts);
+    // console.log(courts);
+    const courts = raw.slice(0, 10);
+
     res.render("resultpage", { courts });
   } catch (err) {
     res.status(400).json(err.message);
@@ -99,7 +101,7 @@ router.get("/result", withAuth, async (req, res) => {
 router.get("/favorites", withAuth, async (req, res) => {
   try {
     console.log(req.session);
-    const userData = await User.findByPk(req.session.user_id,{
+    const userData = await User.findByPk(req.session.user_id, {
       include: [{ model: Courts, through: Favorites, as: "favorite_courts" }],
     });
     console.log(userData);
