@@ -65,6 +65,9 @@ nav {
   display: inline-block;
 }
 
+.container-sign-up {
+  padding-top: 30px;
+}
 .center-align {
   font-family: GothamMedium;
   color: white;
@@ -75,6 +78,7 @@ nav {
   margin-bottom: 0px;
   margin-top: 10px;
   line-height: 0em;
+  margin-bottom: -16px;
 }
 
 .text-color {
@@ -105,4 +109,9 @@ input:focus {
 .row {
   justify-content: center;
   margin-top: 16px;
+  /* margin-bottom: 5px;   */
+}
+
+.btn {
+  margin-top: 20px;
 }
