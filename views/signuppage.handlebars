@@ -1,6 +1,5 @@
-
-    <!-- Sign Up Form -->
-    <div class="row">
+<!-- Sign Up Form -->
+{{! <div class="row">
       <form class="col s6 form signup-form">
         <div class="row">
           <div class="input-field col s6">
@@ -41,4 +40,56 @@
       </form>
     </div>
     <script>console.log('hello world')</script>
-    <script src="./js/signup.js"></script>
+    <script src="./js/signup.js"></script> }}
+
+<div class="login">
+  <!-- Second Container -->
+
+  <div class="container">
+    <h5 class="center-align">Sign Up</h5>
+    <p class="center-align">Don't already have an account? Sign up below!</p>
+    <!-- Sign Up Form -->
+    <div class="row valign-wrapper">
+      <form class="col s12 form signup-form">
+        <div class="row valign-wrapper">
+          <div class="input-field col s6">
+            <input id="first_name" type="text" class="validate" />
+            <label for="first_name" class="text-color">First Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="last_name" type="text" class="validate" />
+            <label for="last_name" class="text-color">Last Name</label>
+          </div>
+        </div>
+        <div class="row valign-wrapper">
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate" />
+            <label for="email" class="text-color">Email</label>
+          </div>
+        </div>
+        <div class="row valign-wrapper">
+          <div class="input-field col s12">
+            <input id="user-name" type="text" class="validate" />
+            <label for="username">Username</label>
+          </div>
+        </div>
+        <div class="row valign-wrapper">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate" />
+            <label for="password" class="text-color">Password</label>
+          </div>
+        </div>
+        <div class="row valign-wrapper">
+          <button class="btn waves-effect waves-light" type="submit">Sign Up
+            <i class="material-icons right">loupe</i>
+          </button>
+        </div>
+        <div>
+          <a href="/login">Login to your account</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="./js/signup.js"></script>
