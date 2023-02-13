@@ -90,10 +90,7 @@ router.get("/result", withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     // console.log(courts);
     const courts = raw.slice(0, 10);
-    console.log({ courts });
-    console.log(courts.length);
-    console.log(raw.length);
-    console.log("this is a new code!");
+
     res.render("resultpage", { courts });
   } catch (err) {
     res.status(400).json(err.message);
