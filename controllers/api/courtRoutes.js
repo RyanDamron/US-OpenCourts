@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Courts } = require("../../models");
+const { Courts, Favorites, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // GET all search for Result Page
@@ -38,20 +38,40 @@ const withAuth = require("../../utils/auth");
 // });
 
 /*******DO NOT forget to add withAuth back in once ready */
-// router.post("/", async (req, res) => {
-//   try {
-//     const newPost = await Courts.create({
-//       where: { city: req.body.city },
-//     });
+router.post("/favorites", async (req, res) => {
+  try {
+    const newPost = await User.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      court_id: req.secure.court_id
+    });
 
-//     req.session.save(() => {
-//       req.session.city = newPost.city;
-//       req.session.logged_in = true;
+    res.status(200).json(newPost);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
-//       res.json({ user: newPost, message: "Searched found!" });
-//     });
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await User.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id!" });
+      return;
+    }
+
+    res.status(200).json(postData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+
 module.exports = router;
