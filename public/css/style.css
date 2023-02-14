@@ -33,6 +33,7 @@ header h5 {
 }
 nav {
   background-color: #766153;
+  box-shadow: 0 0px 25px 0 rgb(68, 68, 68);
 }
 
 .login {
@@ -44,6 +45,7 @@ nav {
   background-color: #00a67f;
   font-family: GothamBook;
   line-height: 1.6em;
+  size: 100px;
 }
 
 .login .container p {
@@ -114,4 +116,66 @@ input:focus {
 
 .btn {
   margin-top: 20px;
+}
+
+.container-search {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.search-form {
+  background-color: #307e34;
+  border-radius: 50px / 50%;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  /* margin: 0 auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form .input-field {
+  width: 300%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form input[type="text"] {
+  font-size: 16px;
+  height: 44px;
+  padding-left: 16px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  outline: none;
+  width: 100%;
+}
+
+.search-form label {
+  font-size: 16px;
+  color: #a8a8a8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0%;
+}
+
+.search-form .btn {
+  height: 30px;
+  padding: 0 16px;
+  border-radius: 0 8px 8px 0;
+  background-color: #7a7a7a;
+  color: white;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  margin-left: 500px;
 }
