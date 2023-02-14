@@ -51,9 +51,15 @@
         {{/if}}
         {{#if court.proshop}}
         Court Has a Proshop
-        {{/if}}</span></div>
+        {{/if}}
+        <a class="waves-effect waves-dark btn-floating">
+          <i class="material-icons favorite">star_border</i>
+          </a>
+
+      </span></div>
   </li>
   {{/each}}
+
 </ul>
 
 
@@ -91,4 +97,17 @@
     var elems = document.querySelectorAll('.collapsible');
     var instances = M.Collapsible.init(elems);
   });
-  </script>
+</script>
+
+<script>
+  const favBtn = document.querySelectorAll('.favorite');
+  favBtn.forEach(btn => {
+  const renderFav = btn.parentElement.parentElement.parentElement.parentElement.textContent;
+  btn.addEventListener('click', function () {
+    console.log('favorite' + renderFav);
+  });
+  });
+</script>
+
+
+<script src=".js/result.js"></script>
