@@ -40,18 +40,18 @@ const withAuth = require("../../utils/auth");
 /*******DO NOT forget to add withAuth back in once ready */
 router.post("/favorites", async (req, res) => {
   try {
-    const newPost = await User.create({
+    const newPost = await Favorites.create({
       ...req.body,
-      user_id: req.session.user_id,
-      court_id: req.secure.court_id
+      // user_id: 2,
+      // court_id: 2,
     });
 
     res.status(200).json(newPost);
+    console.log(newPost);
   } catch (err) {
     res.status(400).json(err);
   }
 });
-
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
@@ -72,6 +72,5 @@ router.delete("/:id", withAuth, async (req, res) => {
     res.status(400).json(err);
   }
 });
-
 
 module.exports = router;
