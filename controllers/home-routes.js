@@ -109,7 +109,7 @@ router.get("/favorites", withAuth, async (req, res) => {
     const user = userData.get({ plain: true });
     // Pass serialized data and session flag into template
     console.log(user);
-    res.render("resultpage", { user });
+    res.render("favoritepage", { courts: user.favorite_courts });
   } catch (err) {
     res.status(400).json(err.message);
   }

@@ -33,7 +33,7 @@
         {{court.state}} |
         {{court.zip_code}} |
         {{court.type}} |
-        {{court.count}} Courts |
+        Number of Courts: {{court.count}} |
         {{#if court.clay}}
         Court Type: Clay |
         {{/if}}
@@ -53,7 +53,7 @@
         Court Has a Proshop
         {{/if}}
         <a class="waves-effect waves-dark btn-floating">
-          <i class="material-icons favorite">star_border</i>
+          <i data-courtid={{court.id}} class="material-icons favorite">star_border</i>
           </a>
 
       </span></div>
@@ -62,35 +62,6 @@
 
 </ul>
 
-
-
-{{!-- <ul class="court_list">
-  {{#each courts as |court|}}
-  <li>{{court.city}}</li>
-  <li>{{court.state}}</li>
-  <li>{{court.zip_code}}</li>
-  <li>{{court.type}}</li>
-  <li>{{court.count}} Courts</li>
-  {{#if court.clay}}
-  <li>Court Type: Clay</li>
-  {{/if}}
-  {{#if court.grass}}
-  <li>Court Type: Grass</li>
-  {{/if}}
-  {{#if court.wall}}
-  <li>Court Has a Wall</li>
-  {{/if}}
-  {{#if court.indoor}}
-  <li>Indoor Court</li>
-  {{/if}}
-  {{#if court.lights}}
-  <li>Court Has Lights</li>
-  {{/if}}
-  {{#if court.proshop}}
-  <li>Court Has a Proshop</li>
-  {{/if}}
-  {{/each}}
-</ul> --}}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -103,8 +74,16 @@
   const favBtn = document.querySelectorAll('.favorite');
   favBtn.forEach(btn => {
   const renderFav = btn.parentElement.parentElement.parentElement.parentElement.textContent;
-  btn.addEventListener('click', function () {
+  btn.addEventListener('click', function (event) {
     console.log('favorite' + renderFav);
+    fetch("../api/court/favorites", {
+      method: "POST",
+      body: JSON.stringify({
+        court_id: event.target.dataset.courtid
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+    .then(response => console.log(response))
   });
   });
 </script>
