@@ -19,6 +19,20 @@ const signupFormHandler = async (event) => {
   }
 };
 
+// const favBtn = document.getElementById('favorite');
+//   const renderFav = favBtn.parentElement.parentElement.parentElement.parentElement.textContent;
+//   favBtn.addEventListener('click', function () {
+//     console.log('favorite' + renderFav);
+//   });
+// const renderFav = favBtn.parentNode.innerHTML;
+// const favBtn = document.getElementById('favorite');
+
+// favBtn.addEventListener('click', function(){
+//     console.log('favorite');
+//   });
+ 
+
+
 // document
 //   .querySelector(".search-form")
 //   .addEventListener("submit", signupFormHandler);
