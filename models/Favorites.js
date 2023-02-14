@@ -1,10 +1,12 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Favorites extends Model {}
 
-Favorites.init (
-   {
+
+Favorites.init(
+  {
+
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -12,30 +14,29 @@ Favorites.init (
       autoIncrement: true,
     },
     user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-          unique: false
-        }
+      type: DataTypes.INTEGER,
+      references: {
+        model: "user",
+        key: "id",
+        unique: false,
       },
-      court_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'courts',
-          key: 'id',
-          unique: false
-        }
-    }
-    
-   },
-    {
+    },
+    court_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "courts",
+        key: "id",
+        unique: false,
+      },
+    },
+  },
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'favorites'
+    modelName: "favorites",
   }
-  );
+);
 
-  module.exports = Favorites;
+module.exports = Favorites;
