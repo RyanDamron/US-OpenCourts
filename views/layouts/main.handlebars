@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>US OPEN COURTS</title>
-  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="/css/reset.css">
 
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -13,7 +13,7 @@
   <!-- Import Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -38,7 +38,7 @@
         <li><a href="/">Home</a></li>
         {{#if session.logged_in}}
         <li><a href="/search">Search</a></li>
-        <li><a href="/result">Result</a></li>
+        {{!-- <li><a href="/result">Result</a></li> --}}
         <li><a href="/favorites">Favorites</a></li>
         <li><a id="logout">Logout</a></li>
         {{else}}
