@@ -118,6 +118,7 @@ input:focus {
   margin-top: 20px;
 }
 
+
 .container-search {
   justify-content: center;
   align-items: center;
@@ -179,3 +180,4 @@ input:focus {
   font-size: 12px;
   margin-left: 500px;
 }
+
