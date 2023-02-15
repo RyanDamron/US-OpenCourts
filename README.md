@@ -1,7 +1,18 @@
 # US Open Courts
 
-Deployment Date: February 15, 2023 \
-Version 1.0
+
+
+# Tabel of Contents
+1. [Title](#us-open-courts)
+2. [Purpose](#purpose)
+3. [Preview](#preview)
+4. [Link](#link)
+5. [Features](#features)
+6. [Original Idea](#original-idea)
+7. [Built Using](#built-using)
+8. [Future Development](#possible-development)
+9. [Contributors](#contributors)
+10. [License](#license)
 
 
 # Purpose
@@ -9,15 +20,17 @@ Version 1.0
 The purpose of the tennis court finder and reservation website is to simplify the process of finding and reserving tennis courts. The platform provides a centralized database of courts and allows users to easily search and filter information to find the court that meets their needs. With features like court info, amount and type of courts, and the ability to view courts, the platform makes it easier for tennis players to play and connect with others in the tennis community. The ultimate goal is to enhance the tennis experience and make the sport more accessible.
 
 
-# Getting Started
+# Preview
 
 To use our tennis court finder and reservation application, all you require is a web browser of your choice.
+<img src="public\assets\img\preview image.png">
 
-# Instructions
+# Link
 
 Go to the website
 
 Start the experience:
+<a href="https://us-opencourts.herokuapp.com/">US Open Courts</a>
 
 # Features
 
@@ -40,7 +53,7 @@ The things we have in mind so far are.
 - Mobile App
 - Delete Button
 
-# Imrpovement on the site
+# Improvement on the site
 
 If you have any suggestions to improve our website, Your feedback helps us provide for a better experience for the tennis community. Contact us at [email] or through our contact page. Thank you!
 
@@ -50,6 +63,7 @@ If you have any suggestions to improve our website, Your feedback helps us provi
 - GitHub: <https://github.com/> 
 - Kaggle <https://www.kaggle.com/>
 - Handlebars <https://handlebarsjs.com/>
+- Materialize <https://materializecss.com/>
 
 # Contributors
 
@@ -59,5 +73,7 @@ If you have any suggestions to improve our website, Your feedback helps us provi
 - Jose Puente: <https://github.com/Bevin24> 
 
 # License
-
-This project is licensed under the MIT License. See LICENSE for more information.
+Deployment Date: February 15, 2023 \
+Version 1.0
+This project is licensed under the MIT License. 
+See LICENSE for more information.
