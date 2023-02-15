@@ -34,28 +34,15 @@
         {{/if}}
         
 
-      </span></div>
-  </li>
+        </span></div>
+    </li>
   {{/each}}
 
 </ul>
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems);
-  });
+  document.addEventListener('DOMContentLoaded', function () { var elems =
+  document.querySelectorAll('.collapsible'); var instances =
+  M.Collapsible.init(elems); });
 </script>
-
-
-{{!-- Need to add event listener for deleting from favorites list --}}
-{{!-- <script> --}}
-  {{!-- const favBtn = document.querySelectorAll('.favorite'); --}}
-  {{!-- favBtn.forEach(btn => { --}}
-  {{!-- const renderFav = btn.parentElement.parentElement.parentElement.parentElement.textContent; --}}
-  {{!-- btn.addEventListener('click', function () { --}}
-    {{!-- console.log('favorite' + renderFav); --}}
-  {{!-- }); --}}
-  {{!-- }); --}}
-{{!-- </script> --}}
