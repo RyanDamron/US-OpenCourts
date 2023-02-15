@@ -22,6 +22,7 @@ header {
   text-align: center;
   background: #f4e3b2;
   font-family: GothamMedium;
+  text-shadow: 4px 4px 16px #86806d;
 }
 
 header h1 {
@@ -33,7 +34,10 @@ header h5 {
 }
 nav {
   background-color: #766153;
-  box-shadow: 0 0px 25px 0 rgb(68, 68, 68);
+  box-shadow: 0 0px 16px 0 rgb(68, 68, 68);
+  font-family: GothamMedium;
+  letter-spacing: 0.618px;
+  text-shadow: 1px 1px 2px black;
 }
 
 .login {
@@ -46,6 +50,7 @@ nav {
   font-family: GothamBook;
   line-height: 1.6em;
   size: 100px;
+  padding-bottom: 100px;
 }
 
 .login .container p {
@@ -67,8 +72,65 @@ nav {
   display: inline-block;
 }
 
+.container-homepage {
+  align-items: center;
+  vertical-align: center;
+  letter-spacing: 0.618px;
+  background-color: #00a67f;
+
+}
+
+.card-content{
+  background-color: #3a3b6d;
+  justify-content: center;
+  align-items: center;
+  border: 1px dashed white;
+
+}
+
+.card-title {
+  color: white;
+  font-family: GothamBook;
+  text-shadow: 1px 1px 2px black;
+}
+
+.card-title-p {
+  color: white;
+  font-family: GothamBook;
+  text-shadow: 1px 1px 2px black;
+}
+
+.home-text {
+  font-family: GothamMedium;
+  color: white;
+  font-size: 3em;
+  text-shadow: 1px 1px 2px black;
+  font-style: italic;
+}
+
+.home-text-title {
+  font-family: GothamMedium;
+  color: white;
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  text-shadow: 1px 1px 2px black;
+}
+
+.card-image{
+  width: 100%;
+  position: absolute;
+}
+
 .container-sign-up {
-  padding-top: 30px;
+  padding-top: 20px;
+  text-shadow: 6px 6px 10px black;
+}
+
+.container-log-in {
+  text-shadow: 6px 6px 10px black;
 }
 .center-align {
   font-family: GothamMedium;
@@ -125,41 +187,42 @@ input:focus {
 
 .btn {
   margin-top: 20px;
+  background-color: #ff7a99;
+}
+.login-icon {
+  color: #eeffa8;
 }
 
+.search-section {
+  background-color: #00a67f;
+  display: flex;
+  padding: 100px 1em;
+  letter-spacing: 0.618px;
+}
 
 .container-search {
+  display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   margin: 0 auto;
-}
-
-.search-form {
-  background-color: #307e34;
-  border-radius: 50px / 50%;
-  padding: 16px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  width: 70%;
-  /* margin: 0 auto; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  border-radius: 100px / 62%;
+  height: 0px;
+  width: 100%;
 }
 
 .search-form .input-field {
-  width: 300%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
+  flex-grow: 1;
 }
 
 .search-form input[type="text"] {
   font-size: 16px;
   height: 44px;
   padding-left: 16px;
-  border-radius: 8px 0 0 8px;
-  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,22 +241,31 @@ input:focus {
 }
 
 .search-form .btn {
-  height: 30px;
-  padding: 0 16px;
-  border-radius: 0 8px 8px 0;
+  border-radius: 25px 25px 25px 25px;
   background-color: #7a7a7a;
   color: white;
   box-shadow: none;
-  display: flex;
-  align-items: center;
+  display: inline-block;
   font-size: 12px;
-  margin-left: 500px;
+  margin-left: 800px;
+  margin-top: -50px;
+  background-color: #ff7a99;
 }
 
 .results-font {
-  color:#3a3b6d;
+  color: #ffffff;
   margin-top: 20px;
   margin-bottom: 10px;
   padding-top: 20px;
   font-size: 40px;
+  text-shadow: 1px 1px 2px black;
+}
+
+.favorites-section {
+  background-color: #00a67f;
+  margin: 0;
+}
+
+.favorites-section ul {
+  background-color: #4446728f;
 }
