@@ -1,48 +1,83 @@
-<h1 class="center-align results-font">My Favorites</h1>
+<div class="favorites-section">
+  <h1 class="center-align results-font">My
+    Favorites</h1>
+    <div class="container results-container">
+    <ul class="collapsible popout court_list">
+      {{#each courts as |court|}}
+        <li>
+          <div class="collapsible-header">{{court.street}}</div>
+          <div class="collapsible-body green lighten-4"><span>
+              {{court.city}},
+              {{court.state}}
+              {{court.zip_code}}
+              <a class="waves-effect waves-dark btn-floating right favorite-btn" data-court-id="{{court.id}}">
+                {{#if court.isFavorite}}
+                  <i class="material-icons">bookmark</i> Unfavorite
+                {{else}}
+                  <i class="material-icons">bookmark_border</i> Favorite
+                {{/if}}
+              </a><br />
+              {{court.type}}<br />
+              Number of Courts:
+              {{court.count}}<br />
+              {{#if court.clay}}
+                Court Type: Clay<br />
+              {{/if}}
+              {{#if court.grass}}
+                Court Type: Grass<br />
+              {{/if}}
+              {{#if court.wall}}
+                Court Has a Wall<br />
+              {{/if}}
+              {{#if court.indoor}}
+                Indoor Court<br />
+              {{/if}}
+              {{#if court.lights}}
+                Court Has Lights<br />
+              {{/if}}
+              {{#if court.proshop}}
+                Court Has a Proshop<br />
+              {{/if}}
 
-<div class="container results-container">
-<ul class="collapsible popout court_list">
-  {{#each courts as |court|}}
-  <li>
-    <div class="collapsible-header">{{court.street}}</div>
-    <div class="collapsible-body green lighten-4"><span>
-        {{court.city}},
-        {{court.state}} 
-        {{court.zip_code}}
-        <a class="waves-effect waves-dark btn-floating right">
-          <i class="material-icons favorite">star_border</i>
-          </a><br>
-        {{court.type}}<br>
-        Number of Courts: {{court.count}}<br>
-        {{#if court.clay}}
-        Court Type: Clay<br>
-        {{/if}}
-        {{#if court.grass}}
-        Court Type: Grass<br>
-        {{/if}}
-        {{#if court.wall}}
-        Court Has a Wall<br>
-        {{/if}}
-        {{#if court.indoor}}
-        Indoor Court<br>
-        {{/if}}
-        {{#if court.lights}}
-        Court Has Lights<br>
-        {{/if}}
-        {{#if court.proshop}}
-        Court Has a Proshop<br>
-        {{/if}}
-        
+            </span></div>
+        </li>
+      {{/each}}
 
-        </span></div>
-    </li>
-  {{/each}}
-
-</ul>
+    </ul>
+  </div>
 </div>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () { var elems =
   document.querySelectorAll('.collapsible'); var instances =
   M.Collapsible.init(elems); });
+
+  document.querySelectorAll('.favorite-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const courtId = button.dataset.courtId;
+      const isFavorite = button.querySelector('.material-icons').textContent === 'bookmark';
+
+      // Send a request to update the favorite status in the server
+      fetch('/favorite-court', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ courtId, isFavorite })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Update the favorite status of the court in the UI
+        const icon = button.querySelector('.material-icons');
+        if (isFavorite) {
+          icon.textContent = 'bookmark_border';
+          button.textContent = 'Favorite';
+        } else {
+          icon.textContent = 'bookmark';
+          button.textContent = 'Unfavorite';
+        }
+      })
+      .catch(error => console.error('Error: ', error));
+    });
+  });
 </script>
