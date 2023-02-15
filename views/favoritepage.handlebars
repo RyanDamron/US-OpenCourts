@@ -2,57 +2,48 @@
 
 <ul class="collapsible popout court_list">
   {{#each courts as |court|}}
-  <li>
-    <div class="collapsible-header">{{court.street}}</div>
-    <div class="collapsible-body"><span>
-        {{court.city}},
-        {{court.state}} |
-        {{court.zip_code}} |
-        {{court.type}} |
-        {{court.count}} Courts |
-        {{#if court.clay}}
-        Court Type: Clay |
-        {{/if}}
-        {{#if court.grass}}
-        Court Type: Grass |
-        {{/if}}
-        {{#if court.wall}}
-        Court Has a Wall |
-        {{/if}}
-        {{#if court.indoor}}
-        Indoor Court |
-        {{/if}}
-        {{#if court.lights}}
-        Court Has Lights |
-        {{/if}}
-        {{#if court.proshop}}
-        Court Has a Proshop
-        {{/if}}
-        <a class="waves-effect waves-dark btn-floating">
-          <i class="material-icons favorite">star_border</i>
+    <li>
+      <div class="collapsible-header">{{court.street}}</div>
+      <div class="collapsible-body"><span>
+          {{court.city}},
+          {{court.state}}
+          |
+          {{court.zip_code}}
+          |
+          {{court.type}}
+          |
+          {{court.count}}
+          Courts |
+          {{#if court.clay}}
+            Court Type: Clay |
+          {{/if}}
+          {{#if court.grass}}
+            Court Type: Grass |
+          {{/if}}
+          {{#if court.wall}}
+            Court Has a Wall |
+          {{/if}}
+          {{#if court.indoor}}
+            Indoor Court |
+          {{/if}}
+          {{#if court.lights}}
+            Court Has Lights |
+          {{/if}}
+          {{#if court.proshop}}
+            Court Has a Proshop
+          {{/if}}
+          <a class="waves-effect waves-dark btn-floating">
+            <i class="material-icons favorite">star_border</i>
           </a>
 
-      </span></div>
-  </li>
+        </span></div>
+    </li>
   {{/each}}
 
 </ul>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems);
-  });
+  document.addEventListener('DOMContentLoaded', function () { var elems =
+  document.querySelectorAll('.collapsible'); var instances =
+  M.Collapsible.init(elems); });
 </script>
-
-
-{{!-- Need to add event listener for deleting from favorites list --}}
-{{!-- <script> --}}
-  {{!-- const favBtn = document.querySelectorAll('.favorite'); --}}
-  {{!-- favBtn.forEach(btn => { --}}
-  {{!-- const renderFav = btn.parentElement.parentElement.parentElement.parentElement.textContent; --}}
-  {{!-- btn.addEventListener('click', function () { --}}
-    {{!-- console.log('favorite' + renderFav); --}}
-  {{!-- }); --}}
-  {{!-- }); --}}
-{{!-- </script> --}}

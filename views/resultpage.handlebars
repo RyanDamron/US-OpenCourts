@@ -6,87 +6,67 @@
   <li><a href="#!">three</a></li>
 </ul>
 <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i
-    class="material-icons right">arrow_drop_down</i></a>
-
-
-{{!-- <ul class="collapsible court_list">
-  {{#each courts as |court|}}
-  <li>
-    <div class="collapsible-header">{{court.street}}</div>
-    <div class="collapsible-body">
-      <span style="display: : block; margin-buttom:3px">{{court.city}}</span>
-    </div>
-  </li>
-
-  {{/each}}
-</ul> --}}
-
-
-
+    class="material-icons right"
+  >arrow_drop_down</i></a>
 
 <ul class="collapsible popout court_list">
   {{#each courts as |court|}}
-  <li>
-    <div class="collapsible-header">{{court.street}}</div>
-    <div class="collapsible-body"><span>
-        {{court.city}},
-        {{court.state}} |
-        {{court.zip_code}} |
-        {{court.type}} |
-        Number of Courts: {{court.count}} |
-        {{#if court.clay}}
-        Court Type: Clay |
-        {{/if}}
-        {{#if court.grass}}
-        Court Type: Grass |
-        {{/if}}
-        {{#if court.wall}}
-        Court Has a Wall |
-        {{/if}}
-        {{#if court.indoor}}
-        Indoor Court |
-        {{/if}}
-        {{#if court.lights}}
-        Court Has Lights |
-        {{/if}}
-        {{#if court.proshop}}
-        Court Has a Proshop
-        {{/if}}
-        <a class="waves-effect waves-dark btn-floating">
-          <i data-courtid={{court.id}} class="material-icons favorite">star_border</i>
+    <li>
+      <div class="collapsible-header">{{court.street}}</div>
+      <div class="collapsible-body"><span>
+          {{court.city}},
+          {{court.state}}
+          |
+          {{court.zip_code}}
+          |
+          {{court.type}}
+          | Number of Courts:
+          {{court.count}}
+          |
+          {{#if court.clay}}
+            Court Type: Clay |
+          {{/if}}
+          {{#if court.grass}}
+            Court Type: Grass |
+          {{/if}}
+          {{#if court.wall}}
+            Court Has a Wall |
+          {{/if}}
+          {{#if court.indoor}}
+            Indoor Court |
+          {{/if}}
+          {{#if court.lights}}
+            Court Has Lights |
+          {{/if}}
+          {{#if court.proshop}}
+            Court Has a Proshop
+          {{/if}}
+          <a class="waves-effect waves-dark btn-floating">
+            <i
+              data-courtid={{court.id}}
+              class="material-icons favorite"
+            >star_border</i>
           </a>
 
-      </span></div>
-  </li>
+        </span></div>
+    </li>
   {{/each}}
 
 </ul>
 
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.collapsible');
-    var instances = M.Collapsible.init(elems);
-  });
+  document.addEventListener('DOMContentLoaded', function () { var elems =
+  document.querySelectorAll('.collapsible'); var instances =
+  M.Collapsible.init(elems); });
 </script>
 
 <script>
-  const favBtn = document.querySelectorAll('.favorite');
-  favBtn.forEach(btn => {
-  const renderFav = btn.parentElement.parentElement.parentElement.parentElement.textContent;
-  btn.addEventListener('click', function (event) {
-    console.log('favorite' + renderFav);
-    fetch("../api/court/favorites", {
-      method: "POST",
-      body: JSON.stringify({
-        court_id: event.target.dataset.courtid
-      }),
-      headers: { "Content-Type": "application/json" },
-    })
-    .then(response => console.log(response))
-  });
-  });
+  const favBtn = document.querySelectorAll('.favorite'); favBtn.forEach(btn => {
+  const renderFav =
+  btn.parentElement.parentElement.parentElement.parentElement.textContent;
+  btn.addEventListener('click', function (event) { console.log('favorite' +
+  renderFav); fetch("../api/court/favorites", { method: "POST", body:
+  JSON.stringify({ court_id: event.target.dataset.courtid }), headers: {
+  "Content-Type": "application/json" }, }) .then(response =>
+  console.log(response)) }); });
 </script>
-
-
-{{!-- <script src="./js/result.js"></script> --}}
