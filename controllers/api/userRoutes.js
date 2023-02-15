@@ -1,5 +1,18 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Favorites, Courts } = require("../../models");
+
+// FIND ALL USERS
+router.get("/", async (req, res) => {
+  try {
+    const users = await User.findAll({
+      include: [{ model: Courts, through: Favorites, as: "favorite_courts" }],
+    });
+    res.status(200).json(users);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 // CREATE new user
 router.post("/", async (req, res) => {
@@ -13,24 +26,12 @@ router.post("/", async (req, res) => {
     });
 
     res.status(200).json(newUserData);
-
-    // req.session.save(() => {
-    //   req.session.user_id = newUserData.id;
-    //   req.session.username = newUserData.username;
-    //   req.session.firstname = newUserData.firstname;
-    //   req.session.lastname = newUserData.lastname;
-    //   req.session.email = newUserData.email;
-    //   req.session.logged_in = true;
-
-    //   // res.json(newUserData);
-    //   res.status(200).json(newUserData);
-    // });
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
   }
 });
-// Login
+// FIND one user, validate and save user information
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -66,6 +67,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+//LOG OUT
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

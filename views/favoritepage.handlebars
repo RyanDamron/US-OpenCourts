@@ -1,4 +1,4 @@
-<h1 class="center-align results-font">Result Page</h1>
+<h1 class="center-align results-font">My Favorites</h1>
 
 <div class="container results-container">
 <ul class="collapsible popout court_list">
@@ -8,9 +8,9 @@
     <div class="collapsible-body green lighten-4"><span>
         {{court.city}},
         {{court.state}} 
-        {{court.zip_code}}            
+        {{court.zip_code}}
         <a class="waves-effect waves-dark btn-floating right">
-          <i data-courtid={{court.id}} class="material-icons favorite">star_border</i>
+          <i class="material-icons favorite">star_border</i>
           </a><br>
         {{court.type}}<br>
         Number of Courts: {{court.count}}<br>
@@ -34,7 +34,6 @@
         {{/if}}
         
 
-
         </span></div>
     </li>
   {{/each}}
@@ -46,15 +45,4 @@
   document.addEventListener('DOMContentLoaded', function () { var elems =
   document.querySelectorAll('.collapsible'); var instances =
   M.Collapsible.init(elems); });
-</script>
-
-<script>
-  const favBtn = document.querySelectorAll('.favorite'); favBtn.forEach(btn => {
-  const renderFav =
-  btn.parentElement.parentElement.parentElement.parentElement.textContent;
-  btn.addEventListener('click', function (event) { console.log('favorite' +
-  renderFav); fetch("../api/court/favorites", { method: "POST", body:
-  JSON.stringify({ court_id: event.target.dataset.courtid }), headers: {
-  "Content-Type": "application/json" }, }) .then(response =>
-  console.log(response)) }); });
 </script>

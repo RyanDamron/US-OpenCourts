@@ -2,57 +2,22 @@ const router = require("express").Router();
 const { Courts, Favorites, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// GET all search for Result Page
-// router.get("/searchedresult", async (req, res) => {
-//   try {
-//     const newCourt = await Courts.findAll({
-//       where: { city: {[Op.like]:req.body.city} },
-//       // ...req.body,
-//       // street: req.session.street,
-//       // city: req.session.city,
-//       // state: req.session.state,
-//       // zip_code: req.session.zip_code,
-//     });
-//     console.log("searched city found!");
-
-//     if (!newCourt) {
-//       res.status(400).json({
-//         message: `${req.body.city} is not a valid cityname`,
-//       });
-//       return;
-//     }
-//     const newCourtJson = await newCourt.json();
-//     console.log(newCourtJson);
-//     // req.session.save(() => {
-//     //   req.session.city = newCourt.city;
-//     //   // req.session.street = newCourt.street;
-//     //   // req.session.state = newCourt.state;
-//     //   // req.secure.zip_code = req.session.zip_code;
-
-//     // });
-//     res.json({ newCourtJson });
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-
-// });
-
-/*******DO NOT forget to add withAuth back in once ready */
-router.post("/favorites", async (req, res) => {
+router.post("/favorites", withAuth, async (req, res) => {
   try {
-    const newPost = await Favorites.create({
-      ...req.body,
-      // user_id: 2,
-      // court_id: 2,
+    console.log(req.body);
+    const createFavorites = await Favorites.create({
+      user_id: req.session.user_id,
+      court_id: req.body.court_id,
     });
 
-    res.status(200).json(newPost);
-    console.log(newPost);
+    res.status(200).json(createFavorites);
+    console.log(createFavorites);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
+//***************for future develpment
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const postData = await User.destroy({
