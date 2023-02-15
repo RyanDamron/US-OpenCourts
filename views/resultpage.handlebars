@@ -1,12 +1,12 @@
-<h1>Result Page</h1>
+<h1 class="center-align results-font">Result Page</h1>
 
-<ul id="dropdown2" class="dropdown-content">
+{{!-- <ul id="dropdown2" class="dropdown-content">
   <li><a href="#!">one<span class="badge">1</span></a></li>
   <li><a href="#!">two<span class="new badge">1</span></a></li>
   <li><a href="#!">three</a></li>
 </ul>
 <a class="btn dropdown-trigger" href="#!" data-target="dropdown2">Dropdown<i
-    class="material-icons right">arrow_drop_down</i></a>
+    class="material-icons right">arrow_drop_down</i></a> --}}
 
 
 {{!-- <ul class="collapsible court_list">
@@ -23,44 +23,46 @@
 
 
 
-
+<div class="cotnainer results-container">
 <ul class="collapsible popout court_list">
   {{#each courts as |court|}}
   <li>
     <div class="collapsible-header">{{court.street}}</div>
-    <div class="collapsible-body"><span>
+    <div class="collapsible-body green lighten-4"><span>
         {{court.city}},
-        {{court.state}} |
-        {{court.zip_code}} |
-        {{court.type}} |
-        Number of Courts: {{court.count}} |
+        {{court.state}} 
+        {{court.zip_code}}            
+        <a class="waves-effect waves-dark btn-floating right">
+          <i data-courtid={{court.id}} class="material-icons favorite">star_border</i>
+          </a><br>
+        {{court.type}}<br>
+        Number of Courts: {{court.count}}<br>
         {{#if court.clay}}
-        Court Type: Clay |
+        Court Type: Clay<br>
         {{/if}}
         {{#if court.grass}}
-        Court Type: Grass |
+        Court Type: Grass<br>
         {{/if}}
         {{#if court.wall}}
-        Court Has a Wall |
+        Court Has a Wall<br>
         {{/if}}
         {{#if court.indoor}}
-        Indoor Court |
+        Indoor Court<br>
         {{/if}}
         {{#if court.lights}}
-        Court Has Lights |
+        Court Has Lights<br>
         {{/if}}
         {{#if court.proshop}}
-        Court Has a Proshop
+        Court Has a Proshop<br>
         {{/if}}
-        <a class="waves-effect waves-dark btn-floating">
-          <i data-courtid={{court.id}} class="material-icons favorite">star_border</i>
-          </a>
+        
 
       </span></div>
   </li>
   {{/each}}
 
 </ul>
+</div>
 
 
 <script>
