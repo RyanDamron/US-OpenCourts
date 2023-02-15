@@ -76,6 +76,15 @@ nav {
   font-size: 2em;
 }
 
+.results-container {
+  margin: 0 auto;
+  max-width: 1280px;
+  height: 90%;
+  width: 70%;
+  margin-left: 15%;
+  font-weight: bold;
+}
+
 .input-field {
   margin-bottom: 0px;
   margin-top: 10px;
@@ -181,3 +190,10 @@ input:focus {
   margin-left: 500px;
 }
 
+.results-font {
+  color:#3a3b6d;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  font-size: 40px;
+}
